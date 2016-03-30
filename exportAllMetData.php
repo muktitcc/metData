@@ -11,15 +11,8 @@ $out .= "\n";
 $result=mysql_query("select * from tblmhvmetdata");
     if (mysql_num_rows($result) > 0) {
          while ($row = mysql_fetch_assoc($result)) {
-            $csv_output .= $row['trnid'] . ", ";
-            $csv_output .= $row['station_id'] . ", ";
-            $csv_output .= $row['mdate'] . ", ";
-            $csv_output .= $row['celsius'] . ", ";
-            $csv_output .= $row['humidity'] . ", ";
-            $csv_output .= $row['dewpoint'] . "\n"; 
- 
-
-        } 
+            $csv_output .= $row['trnid'] . ", ".$row['station_id'] . ", ". $row['mdate'] . ", ". $row['celsius'] . ", ".$row['humidity'] . ", ".$row['dewpoint'] . "\n"; 
+         } 
     } 
 if (isset($csv_output)) {
 $out .= $csv_output;
