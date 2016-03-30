@@ -1,12 +1,5 @@
 <?php
 class SSP {
-	/**
-	 * Create the data output array for the DataTables rows
-	 *
-	 *  @param  array $columns Column information array
-	 *  @param  array $data    Data from the SQL get
-	 *  @return array          Formatted data in a row based format
-	 */
 	static function data_output ( $columns, $data )
 	{
 		$out = array();
@@ -26,19 +19,6 @@ class SSP {
 		}
 		return $out;
 	}
-	/**
-	 * Database connection
-	 *
-	 * Obtain an PHP PDO connection from a connection details array
-	 *
-	 *  @param  array $conn SQL connection details. The array should have
-	 *    the following properties
-	 *     * host - host name
-	 *     * db   - database name
-	 *     * user - user name
-	 *     * pass - user password
-	 *  @return resource PDO connection
-	 */
 	static function db ( $conn )
 	{
 		if ( is_array( $conn ) ) {
@@ -46,15 +26,7 @@ class SSP {
 		}
 		return $conn;
 	}
-	/**
-	 * Paging
-	 *
-	 * Construct the LIMIT clause for server-side processing SQL query
-	 *
-	 *  @param  array $request Data sent to server by DataTables
-	 *  @param  array $columns Column information array
-	 *  @return string SQL limit clause
-	 */
+
 	static function limit ( $request, $columns )
 	{
 		$limit = '';
@@ -63,15 +35,7 @@ class SSP {
 		}
 		return $limit;
 	}
-	/**
-	 * Ordering
-	 *
-	 * Construct the ORDER BY clause for server-side processing SQL query
-	 *
-	 *  @param  array $request Data sent to server by DataTables
-	 *  @param  array $columns Column information array
-	 *  @return string SQL order by clause
-	 */
+
 	static function order ( $request, $columns )
 	{
 		$order = '';
@@ -95,21 +59,6 @@ class SSP {
 		}
 		return $order;
 	}
-	/**
-	 * Searching / Filtering
-	 *
-	 * Construct the WHERE clause for server-side processing SQL query.
-	 *
-	 * NOTE this does not match the built-in DataTables filtering which does it
-	 * word by word on any field. It's possible to do here performance on large
-	 * databases would be very poor
-	 *
-	 *  @param  array $request Data sent to server by DataTables
-	 *  @param  array $columns Column information array
-	 *  @param  array $bindings Array of values for PDO bindings, used in the
-	 *    sql_exec() function
-	 *  @return string SQL where clause
-	 */
 	static function filter ( $request, $columns, &$bindings )
 	{
 		$globalSearch = array();
@@ -127,7 +76,6 @@ class SSP {
 				}
 			}
 		}
-		// Individual column filtering
 		if ( isset( $request['columns'] ) ) {
 			for ( $i=0, $ien=count($request['columns']) ; $i<$ien ; $i++ ) {
 				$requestColumn = $request['columns'][$i];
@@ -141,7 +89,6 @@ class SSP {
 				}
 			}
 		}
-		// Combine the filters into a single string
 		$where = '';
 		if ( count( $globalSearch ) ) {
 			$where = '('.implode(' OR ', $globalSearch).')';
@@ -156,20 +103,6 @@ class SSP {
 		}
 		return $where;
 	}
-	/**
-	 * Perform the SQL queries needed for an server-side processing requested,
-	 * utilising the helper functions of this class, limit(), order() and
-	 * filter() among others. The returned array is ready to be encoded as JSON
-	 * in response to an SSP request, or can be modified if needed before
-	 * sending back to the client.
-	 *
-	 *  @param  array $request Data sent to server by DataTables
-	 *  @param  array|PDO $conn PDO connection resource or connection parameters array
-	 *  @param  string $table SQL table to query
-	 *  @param  string $primaryKey Primary key of the table
-	 *  @param  array $columns Column information array
-	 *  @return array          Server-side processing response array
-	 */
 	static function simple ( $request, $conn, $table, $primaryKey, $columns )
 	{
 		$bindings = array();
@@ -209,29 +142,7 @@ class SSP {
 			"data"            => self::data_output( $columns, $data )
 		);
 	}
-	/**
-	 * The difference between this method and the `simple` one, is that you can
-	 * apply additional `where` conditions to the SQL queries. These can be in
-	 * one of two forms:
-	 *
-	 * * 'Result condition' - This is applied to the result set, but not the
-	 *   overall paging information query - i.e. it will not effect the number
-	 *   of records that a user sees they can have access to. This should be
-	 *   used when you want apply a filtering condition that the user has sent.
-	 * * 'All condition' - This is applied to all queries that are made and
-	 *   reduces the number of records that the user can access. This should be
-	 *   used in conditions where you don't want the user to ever have access to
-	 *   particular records (for example, restricting by a login id).
-	 *
-	 *  @param  array $request Data sent to server by DataTables
-	 *  @param  array|PDO $conn PDO connection resource or connection parameters array
-	 *  @param  string $table SQL table to query
-	 *  @param  string $primaryKey Primary key of the table
-	 *  @param  array $columns Column information array
-	 *  @param  string $whereResult WHERE condition to apply to the result set
-	 *  @param  string $whereAll WHERE condition to apply to all queries
-	 *  @return array          Server-side processing response array
-	 */
+
 	static function complex ( $request, $conn, $table, $primaryKey, $columns, $whereResult=null, $whereAll=null )
 	{
 		$bindings = array();
