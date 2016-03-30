@@ -199,17 +199,7 @@ class SSP {
 			"data"            => self::data_output( $columns, $data )
 		);
 	}
-	/**
-	 * Connect to the database
-	 *
-	 * @param  array $sql_details SQL server connection details array, with the
-	 *   properties:
-	 *     * host - host name
-	 *     * db   - database name
-	 *     * user - user name
-	 *     * pass - user password
-	 * @return resource Database connection handle
-	 */
+
 	static function sql_connect ( $sql_details )
 	{
 		try {
@@ -228,16 +218,7 @@ class SSP {
 		}
 		return $db;
 	}
-	/**
-	 * Execute an SQL query on the database
-	 *
-	 * @param  resource $db  Database handler
-	 * @param  array    $bindings Array of PDO binding values from bind() to be
-	 *   used for safely escaping strings. Note that this can be given as the
-	 *   SQL query string if no bindings are required.
-	 * @param  string   $sql SQL query to execute.
-	 * @return array         Result from the query (all rows)
-	 */
+
 	static function sql_exec ( $db, $bindings, $sql=null )
 	{
 		// Argument shifting
@@ -263,17 +244,7 @@ class SSP {
 		// Return all
 		return $stmt->fetchAll();
 	}
-	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Internal methods
-	 */
-	/**
-	 * Throw a fatal error.
-	 *
-	 * This writes out an error message in a JSON string which DataTables will
-	 * see and show to the user in the browser.
-	 *
-	 * @param  string $msg Message to send to the client
-	 */
+
 	static function fatal ( $msg )
 	{
 		echo json_encode( array( 
@@ -281,16 +252,7 @@ class SSP {
 		) );
 		exit(0);
 	}
-	/**
-	 * Create a PDO binding key which can be used for escaping variables safely
-	 * when executing a query with sql_exec()
-	 *
-	 * @param  array &$a    Array of bindings
-	 * @param  *      $val  Value to bind
-	 * @param  int    $type PDO field type
-	 * @return string       Bound key to be used in the SQL where this parameter
-	 *   would be used.
-	 */
+
 	static function bind ( &$a, $val, $type )
 	{
 		$key = ':binding_'.count( $a );
@@ -301,14 +263,7 @@ class SSP {
 		);
 		return $key;
 	}
-	/**
-	 * Pull a particular property from each assoc. array in a numeric array, 
-	 * returning and array of the property values from each item.
-	 *
-	 *  @param  array  $a    Array to get data from
-	 *  @param  string $prop Property to read
-	 *  @return array        Array of property values
-	 */
+
 	static function pluck ( $a, $prop )
 	{
 		$out = array();
@@ -317,13 +272,7 @@ class SSP {
 		}
 		return $out;
 	}
-	/**
-	 * Return a string from an array or a string
-	 *
-	 * @param  array|string $a Array to join
-	 * @param  string $join Glue for the concatenation
-	 * @return string Joined string
-	 */
+
 	static function _flatten ( $a, $join = ' AND ' )
 	{
 		if ( ! $a ) {
