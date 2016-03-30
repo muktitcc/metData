@@ -1,7 +1,7 @@
 <?php
 $connInfo = array(
-    'user' => 'user',
-    'pass' => 'pass',
+    'user' => '',
+    'pass' => '',
     'db'   => '',
     'host' => ''
 );
