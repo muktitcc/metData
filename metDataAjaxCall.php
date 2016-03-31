@@ -1,7 +1,13 @@
 <?php
 ini_set('memory_limit', '-1');
 echo "1";
-require_once('inc/config.php');
+//require_once('inc/config.php');
+$connInfo = array(
+    'user' => 'root',
+    'pass' => 'ty1977',
+    'db'   => 'metstation',
+    'host' => 'localhost'
+);
 echo "2";
 require_once('ssp.class.php');
 echo "3";
