@@ -1,6 +1,6 @@
 <?php
 $connInfo = array(
-    'user' => 'metUser',
+    'user' => 'metUser1',
     'pass' => 'none',
     'db'   => 'metstation',
     'host' => 'localhost'
