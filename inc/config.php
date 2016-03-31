@@ -1,7 +1,7 @@
 <?php
 $connInfo = array(
-    'user' => 'root',
-    'pass' => 'ty1977',
+    'user' => 'metUser',
+    'pass' => 'none',
     'db'   => 'metstation',
     'host' => 'localhost'
 );
