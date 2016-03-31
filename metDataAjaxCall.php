@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('memory_limit', '-1');
-require('/inc/config.php');
+require('inc/config.php');
 require('ssp.class.php');
 var_dump($connInfo);
 $table = 'tblmhvmetdata';
