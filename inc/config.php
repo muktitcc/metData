@@ -1,6 +1,6 @@
 <?php
 $connInfo = array(
-    'user' => '',
+    'user' => 'test',
     'pass' => '',
     'db'   => '',
     'host' => ''
