@@ -19,7 +19,7 @@ class SSP {
 		}
 		return $out;
 	}
-	static function db ( $conn )
+	static function db ($conn)
 	{
 		if ( is_array( $conn ) ) {
 			return self::sql_connect( $conn );
