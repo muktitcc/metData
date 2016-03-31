@@ -7,7 +7,6 @@ $connInfo = array(
     'db'   => 'metstation',
     'host' => 'localhost'
 );
-include('ssp.class.php');
 $table = 'tblmhvmetdata';
 $primaryKey = 'trnid';
 $columns = array(
@@ -18,5 +17,6 @@ $columns = array(
 	array('db' => 'humidity',        'dt'        => 4),
 	array('db' => 'dewpoint',        'dt'        => 5),
 );
+include('ssp.class.php');
 echo json_encode(SSP::simple( $_GET, $connInfo, $table, $primaryKey, $columns ));
 ?>
