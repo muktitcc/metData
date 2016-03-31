@@ -1,7 +1,8 @@
 <?php
 ini_set('memory_limit', '-1');
 require_once( "inc/config.php" );
-require( 'ssp.class.php' );
+require_once( 'ssp.class.php' );
+echo "mm";
 $table = 'tblmhvmetdata';
 $primaryKey = 'trnid';
 $columns = array(
