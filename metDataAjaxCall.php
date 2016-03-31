@@ -1,13 +1,14 @@
 <?php
 error_reporting(E_ALL);
 ini_set('memory_limit', '-1');
+var_dump($connInfo);
 require('inc/config.php');
 require('ssp.class.php');
 $table = 'tblmhvmetdata';
 $primaryKey = 'trnid';
 $columns = array(
-    	array( 'db' => 	'trnid', 		'dt' => 0 ),
-    	array( 'db' => 	'station_id',     	'dt' => 1 ),
+    	array('db' => 	'trnid', 		'dt' => 0 ),
+    	array('db' => 	'station_id',     	'dt' => 1 ),
     	array('db' => 	'mdate',        	'dt'        => 2),
 	array('db' => 	'celsius',        	'dt'        => 3),
 	array('db' => 	'humidity',        	'dt'        => 4),
