@@ -9,7 +9,7 @@ $connInfo = array(
     'host' => 'localhost'
 );
 echo "2";
-require_once('ssp.class.php');
+include('ssp.class.php');
 echo "3";
 $table = 'tblmhvmetdata';
 $primaryKey = 'trnid';
