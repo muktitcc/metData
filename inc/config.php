@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 $connInfo = array(
     'user' => 'root',
     'pass' => 'ty1977',
