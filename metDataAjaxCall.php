@@ -1,9 +1,9 @@
 <?php
 error_reporting(E_ALL);
 ini_set('memory_limit', '-1');
-var_dump($connInfo);
-require('inc/config.php');
+require(__DIR__ .'/inc/config.php');
 require('ssp.class.php');
+var_dump($connInfo);
 $table = 'tblmhvmetdata';
 $primaryKey = 'trnid';
 $columns = array(
