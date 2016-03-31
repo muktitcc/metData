@@ -1,7 +1,6 @@
 <?php
 require('inc/config.php');
 require('ssp.class.php');
-var_dump($connInfo);
 $table = 'tblmhvmetdata';
 $primaryKey = 'trnid';
 $columns = array(
