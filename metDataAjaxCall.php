@@ -13,7 +13,5 @@ $columns = array(
 	array('db' => 	'humidity',        	'dt'        => 4),
 	array('db' => 	'dewpoint',        	'dt'        => 5),
 );
-echo "daf";
 echo json_encode(SSP::simple( $_GET, $connInfo, $table, $primaryKey, $columns ));
-echo "end";
 ?>
