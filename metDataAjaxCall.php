@@ -21,4 +21,5 @@ $columns = array(
 include('ssp.class.php');
 echo "daf";
 echo json_encode(SSP::simple( $_GET, $connInfo, $table, $primaryKey, $columns ));
+echo "end";
 ?>
