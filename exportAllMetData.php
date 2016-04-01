@@ -2,7 +2,7 @@
 require_once( "inc/config.php" );
 ini_set('memory_limit', '-1');
 $out = '';
-$filename_prefix = 'metData';
+$filename_prefix = 'metData';  // Set filename
 $csv_hdr = "Trn#,Station,Date time,Celsius,Humidity,Dewpoint";
 if (isset($csv_hdr)) {
 $out .= $csv_hdr;
