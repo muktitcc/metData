@@ -24,20 +24,19 @@ $altdiff = $_GET["altdiff"];
 /* $server = "127.0.0.1";   //this is XAMPP 
 $dbuser = "root";
 $password = "";
-
-$link = mysqli_connect(($server, $dbuser, $password);
-mysqli_select_db($link,"rgob metdata");          
 */
+$link = mysqli_connect(($connInfo["host"], $connInfo["user"], $connInfo["pass"]);
+mysqli_select_db($link,$connInfo["db"]);          
+
 $sql = "SELECT * FROM tblstation";      //get the MH station information
-$result = mysql_query($sql);
-//$result = mysqli_query($link,$sql);
+$result = mysqli_query($link,$sql);
 
 echo "<table>";
 	echo "<tr><th>ID</th><th>    </th><th>Station</th><th>Altitude (m)</th><th>Distance apart (km)</th><th>Type</th>
 	</tr>";
 
 
-	while($row=mysql_fetch_array($result)){              //take each station and get lat, long and altitude
+	while($row=mysqli_fetch_array($result)){              //take each station and get lat, long and altitude
 	$tblstation_id = $row["station_id"];
 	$tblstation_name = $row["tshowog"];
 	$lat1 = $row["latitude"];
@@ -45,10 +44,9 @@ echo "<table>";
 	$alt = $row["altitude"];
 
 $sql = "SELECT * FROM rgobstations";      //get the RGOB station information
-$result2 = mysql_query($sql);
-//$result2 = mysqli_query($link,$sql);
+$result2 = mysqli_query($link,$sql);
 
-while($row=mysql_fetch_array($result2)){
+while($row=mysqli_fetch_array($result2)){
 
 	$rgobstation_id = $row["station_id"];                //get lat, long and altitude
 	$rgobstation = $row["station_name"]; 
@@ -97,6 +95,6 @@ function distance($la1, $lon1, $la2, $lon2) {
   		return acos(sin($la2*$rad) * sin($la1*$rad) + cos($la2*$rad) * cos($la1*$rad) * cos($lon2*$rad - $lon1*$rad)) * 6371;// Kilometers
 	}
 
-//mysqli_close($link);
+mysqli_close($link);
 ?>
 	
