@@ -26,14 +26,15 @@ $link = mysqli_connect($server,$dbuser,$password);
 mysqli_select_db($link,"rgob metdata");  */        
 
 $sql = "SELECT * FROM tblstation";      //get the MH station information
-$result = mysqli_query($link,$sql);
+$result = mysql_query($sql);
+//$result = mysqli_query($link,$sql);
 
 echo "<table>";
 	echo "<tr><th>ID</th><th>    </th><th>Station</th><th>Altitude (m)</th><th>Distance apart (km)</th><th>Type</th>
 	</tr>";
 
 
-	while($row=mysqli_fetch_array($result)){              //take each station and get lat, long and altitude
+	while($row=mysql_fetch_array($result)){              //take each station and get lat, long and altitude
 	$tblstation_id = $row["station_id"];
 	$tblstation_name = $row["tshowog"];
 	$lat1 = $row["latitude"];
@@ -41,10 +42,10 @@ echo "<table>";
 	$alt = $row["altitude"];
 
 $sql = "SELECT * FROM rgobstations";      //get the RGOB station information
-$result2 = mysqli_query($link,$sql);
+$result2 = mysql_query($sql);
+//$result2 = mysqli_query($link,$sql);
 
-
-while($row=mysqli_fetch_array($result2)){
+while($row=mysql_fetch_array($result2)){
 
 	$rgobstation_id = $row["station_id"];                //get lat, long and altitude
 	$rgobstation = $row["station_name"]; 
