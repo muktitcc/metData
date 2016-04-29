@@ -97,6 +97,6 @@ function distance($la1, $lon1, $la2, $lon2) {
   		return acos(sin($la2*$rad) * sin($la1*$rad) + cos($la2*$rad) * cos($la1*$rad) * cos($lon2*$rad - $lon1*$rad)) * 6371;// Kilometers
 	}
 
-mysqli_close($link);
+//mysqli_close($link);
 ?>
 	
