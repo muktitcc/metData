@@ -14,9 +14,6 @@
 </style>
 
 <?php
-
-//Since connection type used is mysql_  hence mysqli_ is changed to the mysql_.
-
 require_once( "inc/config.php" );
 $dist = $_GET["dist"];			//values entered in form
 $altdiff = $_GET["altdiff"];
