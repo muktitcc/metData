@@ -14,16 +14,16 @@
 </style>
 
 <?php
-
+require_once( "inc/config.php" );
 $dist = $_GET["dist"];			//values entered in form
 $altdiff = $_GET["altdiff"];
 
-$server = "127.0.0.1";   //this is XAMPP 
+/* $server = "127.0.0.1";   //this is XAMPP 
 $dbuser = "root";
 $password = "";
 
 $link = mysqli_connect($server,$dbuser,$password);
-mysqli_select_db($link,"rgob metdata");          
+mysqli_select_db($link,"rgob metdata");  */        
 
 $sql = "SELECT * FROM tblstation";      //get the MH station information
 $result = mysqli_query($link,$sql);
