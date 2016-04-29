@@ -25,7 +25,7 @@ $altdiff = $_GET["altdiff"];
 $dbuser = "root";
 $password = "";
 */
-$link = mysqli_connect(($connInfo["host"], $connInfo["user"], $connInfo["pass"]);
+$link = mysqli_connect($connInfo["host"], $connInfo["user"], $connInfo["pass"]);
 mysqli_select_db($link,$connInfo["db"]);          
 
 $sql = "SELECT * FROM tblstation";      //get the MH station information
