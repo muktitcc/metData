@@ -21,12 +21,12 @@ $altdiff = $_GET["altdiff"];
 /* $server = "127.0.0.1";   //this is XAMPP 
 $dbuser = "root";
 $password = "";
-
+*/
 $link = mysqli_connect($connInfo["host"], $connInfo["user"], $connInfo["pass"]); // common db connection variable
 mysqli_select_db($link,$connInfo["db"]);       // common db connection variable   
-*/
+
 $sql = "SELECT * FROM tblstation";      //get the MH station information
-$result = mysqli_query($conn,$sql);
+$result = mysqli_query($link,$sql);
 
 echo "<table>";
 	echo "<tr><th>ID</th><th>    </th><th>Station</th><th>Altitude (m)</th><th>Distance apart (km)</th><th>Type</th>
@@ -41,7 +41,7 @@ echo "<table>";
 	$alt = $row["altitude"];
 
 $sql = "SELECT * FROM rgobstations";      //get the RGOB station information
-$result2 = mysqli_query($conn,$sql);
+$result2 = mysqli_query($link,$sql);
 
 while($row=mysqli_fetch_array($result2)){
 
@@ -92,6 +92,6 @@ function distance($la1, $lon1, $la2, $lon2) {
   		return acos(sin($la2*$rad) * sin($la1*$rad) + cos($la2*$rad) * cos($la1*$rad) * cos($lon2*$rad - $lon1*$rad)) * 6371;// Kilometers
 	}
 
-mysqli_close($conn);
+mysqli_close($link);
 ?>
 	
