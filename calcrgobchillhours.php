@@ -50,7 +50,7 @@ echo "<table>";
 }
 
 
-$sql = "SELECT * FROM rgobAmetdata where tmax IS NOT NULL and tmin IS NOT NULL and (month(bdate) NOT BETWEEN 4 AND 10 and station_id = 1)";      //get the RGOB met stations Tmax and Tmin for months Nov to Mar
+$sql = "SELECT * FROM rgobAmetdata where tmax IS NOT NULL and tmin IS NOT NULL and (month(bdate) NOT BETWEEN 4 AND 10)";      //get the RGOB met stations Tmax and Tmin for months Nov to Mar
 											//if there is a NULL tmax or tmin row will not be selected ... need to address this
 $result2 = mysqli_query($link,$sql);
 
