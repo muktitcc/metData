@@ -81,3 +81,44 @@ if($tmax == $tmin){  					//deal with tmax and tmin being equal not to divide by
 	$upperch = ($twod-$f)*$bvalueupper;
 
 $total = ($lowerch+$middlech+$upperch);
+
+$sql_insert = "INSERT INTO tblrgobchillhours (station_id, bdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs) VALUES ('$rgobstation_id', '$rgobdate', '$lowerch', '$middlech', '$upperch')";
+mysqli_query($link,$sql_insert);
+	
+		echo "<tr>						
+			<td>$rgobstation_id
+			<td>$rgobdate
+			<td>$tmax
+			<td>$tmin
+			<td>$tantheta
+			<td>$lowerch
+			<td>$middlech
+			<td>$upperch
+			<td>$total
+			
+		</tr>";
+
+}
+echo "</table>";
+
+ 
+//calculation
+//
+
+function calc($tanth, $temp, $tmi) {
+  		if ($tanth * ($temp-$tmi) > 12){
+  		return 24;
+		}
+
+		if ($temp-$tmi < 0){
+		return 0;
+		}
+
+		else {
+		return (2*$tanth*($temp-$tmi));
+		}
+	}
+
+mysqli_close($link);
+?>
+	
