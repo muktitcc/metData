@@ -53,7 +53,7 @@ echo "<table>";
 }
 
 
-$sql = "SELECT * FROM tblmhvmetdata WHERE month(mdate) NOT BETWEEN 4 AND 10 AND station_id = 2";      //get the MHV met stations celsius for months Nov to Mar
+$sql = "SELECT * FROM tblmhvmetdata WHERE month(mdate) NOT BETWEEN 4 AND 10";      //get the MHV met stations celsius for months Nov to Mar
 											//if there is a NULL ... need to address this
 $result2 = mysqli_query($link,$sql);
 
