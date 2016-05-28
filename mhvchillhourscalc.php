@@ -69,11 +69,11 @@ while($row=mysqli_fetch_array($result2)){
 	$newmhvdate = DATE('Y-m-d',$mhvdat);
 	
 	IF($newmhvdate > $mhvdate){
-		switch($count){
-			case 24:			//if not 24hr record for day, data exluded.  Need to address if month/season incomplete
+		//switch($count){
+			//case 24:			//if not 24hr record for day, data exluded. Order?  Need to address if month/season incomplete
 			$sql_insert = "INSERT INTO tblmhvchillhours (station_id, mdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs) VALUES ('$mhvstation_id', '$mhvdate', '$lowerch', '$middlech', '$upperch')";
 			mysqli_query($link,$sql_insert);
-		}
+		//}
 	
 		$count = 0;		//reset totals
 		$lowerch = 0;
