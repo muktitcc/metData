@@ -1,5 +1,6 @@
 
 <!-- calculate chill hours for mhv metdata -->
+<!--superceded by mhvchillhoursrevised.php-->
 
 <style>
 	tr:nth-child(even){
