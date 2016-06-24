@@ -124,7 +124,7 @@ while($row=mysqli_fetch_array($result2)){
 				<td>$counthrs				
 			</tr>";
 	 
-			$sql_insert = "INSERT INTO mhvchillhours (station_id, bdate, lowerband, middleband, upperband, totalhours) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
+			$sql_insert = "INSERT INTO tblmhvchillhours (station_id, bdate, lowerband, middleband, upperband, totalhours) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
 			mysqli_query($link,$sql_insert);			//insert the chillhours into chillhour table for that period
 
 			$counthrs = 0;						//reset counthrs and chillhours to zero for next period
@@ -148,3 +148,36 @@ while($row=mysqli_fetch_array($result2)){
 if($mhvcelsius >= $temp1 and $mhvcelsius < $temp2){			//see if the temperature falls into lowerband
 	$lowerch +=  ($bvaluelower*$chilltime);				//if it does, add time to lowerband chillhours
 	}
+if($mhvcelsius >= $temp2 AND $mhvcelsius < $temp3){			//see if the temperature falls into middleband
+	$middlech +=  ($bvaluemiddle*$chilltime);			//if it does, add time to middleband chillhours
+	}
+
+if($mhvcelsius >= $temp3 AND $mhvcelsius <= $temp4){			//see if the temperature falls into upperband
+	$upperch += ($bvalueupper*$chilltime);				//if it does, add time to upperband chillhours
+	}		
+	
+$counthrs += $chilltime;						//get the total hours for a day over which data analysed to see if data complete
+
+echo "<tr>													
+	<td>$mhvstation_id
+	<td>$date1
+	<td>$date2
+	<td>$difference
+        <td>$chilltime
+	<td>$mhvcelsius
+	<td>$lowerch
+	<td>$middlech
+	<td>$upperch
+	<td>$counthrs
+			
+</tr>";
+
+$sql_insert = "INSERT INTO tblmhvchillhours (station_id, bdate, lowerband, middleband, upperband, totalhours) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
+mysqli_query($link,$sql_insert);                            // insert data after last row
+
+echo "</table>";
+
+
+mysqli_close($link);
+?>
+	
