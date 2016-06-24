@@ -124,7 +124,7 @@ while($row=mysqli_fetch_array($result2)){
 				<td>$counthrs				
 			</tr>";
 	 
-			$sql_insert = "INSERT INTO tblmhvchillhours (station_id, bdate, lowerband, middleband, upperband, totalhours) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
+			$sql_insert = "INSERT INTO tblmhvchillhours (station_id, mdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs, counthrs) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
 			mysqli_query($link,$sql_insert);			//insert the chillhours into chillhour table for that period
 
 			$counthrs = 0;						//reset counthrs and chillhours to zero for next period
@@ -172,7 +172,7 @@ echo "<tr>
 			
 </tr>";
 
-$sql_insert = "INSERT INTO tblmhvchillhours (station_id, bdate, lowerband, middleband, upperband, totalhours) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
+$sql_insert = "INSERT INTO tblmhvchillhours (station_id, mdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs, counthrs) VALUES ('$mhvstation_id', '$oldday', '$lowerch', '$middlech', '$upperch', '$counthrs')";
 mysqli_query($link,$sql_insert);                            // insert data after last row
 
 echo "</table>";
