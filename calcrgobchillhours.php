@@ -53,7 +53,6 @@ echo "<table>";
 $sql = "SELECT * FROM tblrgobAmetdata where tmax IS NOT NULL and tmin IS NOT NULL and (month(bdate) NOT BETWEEN 4 AND 10)";      //get the RGOB met stations Tmax and Tmin for months Nov to Mar
 											//if there is a NULL tmax or tmin row will not be selected ... need to address this
 $result2 = mysqli_query($link,$sql);
-$chillhrs = 24
 
 while($row=mysqli_fetch_array($result2)){
 
@@ -82,7 +81,7 @@ if($tmax == $tmin){  					//deal with tmax and tmin being equal not to divide by
 
 $total = ($lowerch+$middlech+$upperch);
 
-$sql_insert = "INSERT INTO tblrgobchillhours (station_id, bdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs, counthrs) VALUES ('$rgobstation_id', '$rgobdate', '$lowerch', '$middlech', '$upperch', '$chillhrs')";
+$sql_insert = "INSERT INTO tblrgobchillhours (station_id, bdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs) VALUES ('$rgobstation_id', '$rgobdate', '$lowerch', '$middlech', '$upperch')";
 mysqli_query($link,$sql_insert);
 	
 		echo "<tr>						
