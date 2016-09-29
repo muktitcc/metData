@@ -81,7 +81,7 @@ if($tmax == $tmin){  					//deal with tmax and tmin being equal not to divide by
 
 $total = ($lowerch+$middlech+$upperch);
 
-$sql_insert = "INSERT INTO tblrgobchillhours (station_id, bdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs) VALUES ('$rgobstation_id', '$rgobdate', '$lowerch', '$middlech', '$upperch')";
+$sql_insert = "INSERT INTO tblrgobchillhours (station_id, bdate, lowbandchillhrs, midbandchillhrs, upbandchillhrs, counthrs) VALUES ('$rgobstation_id', '$rgobdate', '$lowerch', '$middlech', '$upperch', 24)";
 mysqli_query($link,$sql_insert);
 	
 		echo "<tr>						
