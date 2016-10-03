@@ -1,0 +1,6 @@
+duplicates in mhv data
+
+SELECT count(*), station_id, mdate
+FROM tblmhvmetdata
+GROUP BY station_id, mdate
+HAVING COUNT(*) > 1;
