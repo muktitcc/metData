@@ -1,0 +1,19 @@
+Query for MHV data
+
+INSERT INTO tblmhvseasonchillhrs SELECT CH.station_id, S.season, SUM(CH.lowbandchillhrs) as lowband, SUM(CH.midbandchillhrs), SUM(CH.upbandchillhrs), SUM(CH.counthrs) 
+FROM tblmhvchillhours CH INNER JOIN tblchillseasons S ON CH.mdate >= S.startDate and CH.mdate <= S.endDate 
+GROUP BY CH.station_id, S.season
+
+
+Query for rgobAWS data
+
+INSERT INTO tblrgobAWSseasonchillhrs SELECT CH.station_id, S.season, SUM(CH.lowbandchillhrs) as lowband, SUM(CH.midbandchillhrs), SUM(CH.upbandchillhrs), SUM(CH.counthrs) 
+FROM tblrgobAWSchillhours CH INNER JOIN tblchillseasons S ON CH.bdate >= S.startDate and CH.bdate <= S.endDate 
+GROUP BY CH.station_id, S.season
+
+
+Query for rgob data
+
+INSERT INTO tblrgobseasonchillhrs SELECT CH.station_id, S.season, SUM(CH.lowbandchillhrs) as lowband, SUM(CH.midbandchillhrs), SUM(CH.upbandchillhrs), SUM(CH.counthrs) 
+FROM tblrgobchillhours CH INNER JOIN tblchillseasons S ON CH.bdate >= S.startDate and CH.bdate <= S.endDate 
+GROUP BY CH.station_id, S.season
