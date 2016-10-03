@@ -1,5 +1,5 @@
 <!-- calculate chill hours by season for rgob metdata -->
-
+<!-- this program not required as can be done by simple SQL query -->
 <style>
 	tr:nth-child(even){
 		background-color:#d3d3d3;
