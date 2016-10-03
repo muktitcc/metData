@@ -1,0 +1,5 @@
+Group AWS24hr data by day (solarRad has been averaged, but not sure if this is correct treatment of this data)
+
+SELECT recno, station_id, DATE(bdate) bdate, MAX(tmax) maxCelsius, MIN(tmin) minCelsius, MAX(RHmax) maxTH, MIN(RHmin) minRH, MAX(PressureMax) maxPressure, MIN(PressureMin) minPressure, MAX(WindspeedMax) maxWindspeed, MIN(WindspeedMin) minWindspeed, SUM(rainfall) TotalRain, AVG(solarRad) AvgSolar, AVG(winddirection) AvgWinddir
+FROM rgobAWSmetdata
+GROUP BY station_id, DATE(bdate)
