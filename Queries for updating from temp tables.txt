@@ -3,14 +3,14 @@ Query to update rgobtempmetdata from rgobuploaddata where date needs to be match
 UPDATE `rgobtempmetdata` RIGHT JOIN rgobuploaddata on rgobtempmetdata.bdate = rgobuploaddata.ddate SET tmax = rgobuploaddata.obs WHERE rgobtempmetdata.station_id=rgobuploaddata.station_id
 
 
-Query to insert temp data into rgobAmetdata
+Query to insert temp data into tblrgobAmetdata
 
-INSERT INTO rgobAmetdata (station_id, bdate, tmax, tmin, RH, rainfall, windspeed, winddirection, sunshinehrs)
+INSERT INTO tblrgobAmetdata (station_id, bdate, tmax, tmin, RH, rainfall, windspeed, winddirection, sunshinehrs)
 SELECT station_id, bdate, tmax, tmin, RH, rainfall, windspeed, winddirection, sunshinehrs FROM rgobtempmetdata
 
 
-Query to insert temp data into rgobAWSmetdata
+Query to insert temp data into tblrgobAWSmetdata
 
-INSERT INTO rgobAWSmetdata (station_id, bdate, tmax, tmin, RHmax, RHmin, PressureMin, PressureMax,WindspeedMax, WindspeedMin, rainfall, solarRad, winddirection)
+INSERT INTO tblrgobAWSmetdata (station_id, bdate, tmax, tmin, RHmax, RHmin, PressureMin, PressureMax,WindspeedMax, WindspeedMin, rainfall, solarRad, winddirection)
 SELECT station_id, bdate, tmax, tmin, RHmax, RHmin, PressureMin, PressureMax,WindspeedMax, WindspeedMin, rainfall, solarRad, winddirection FROM rgobtempAWSmetdata
 
