@@ -1,10 +1,10 @@
 <p>Find RGOB met stations that are near each other
 
-and within specified altitude difference. Enter specified distance and altitude difference and submit. Get processed by RGOBstationdist.php</p>
+and within specified altitude difference. Enter specified distance and altitude difference and submit. Get processed by rgobstationdist.php</p>
 
 
 
-<form method="get" action = "RGOBstationdist.php">
+<form method="get" action = "rgobstationdist.php">
 
 	Enter maximum distance apart for stations in km: <input type="text" name="dist"/><br/>
 
