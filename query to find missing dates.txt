@@ -1,0 +1,9 @@
+SELECT daydate FROM `tempdates` TD LEFT JOIN tblrgobAWSmetdata AWS on TD.daydate = AWS.bdate WHERE AWS.bdate is null 
+
+SELECT daydate FROM `tempdates` TD LEFT JOIN vAWSmetdatastation93 AWS on TD.daydate = AWS.bdate WHERE AWS.bdate is null 
+
+CREATE VIEW vAWSmetdatastation94 AS
+SELECT recno, station_id, DATE(bdate) bdate
+FROM tblrgobAWSmetdata
+WHERE station_id = 94
+GROUP BY station_id, DATE(bdate)
