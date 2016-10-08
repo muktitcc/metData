@@ -44,7 +44,7 @@ mysqli_select_db($link,$connInfo["db"]);       // common db connection variable
 
 $sql = "SELECT * FROM tblrgobstations where Trim(type) <> 'Class C'";      //get the RGOB station information
 $result = mysqli_query($link,$sql);
-
+$result2 = mysqli_query($link,$sql);
 
 
 echo "<table>";
@@ -73,9 +73,9 @@ echo "<table>";
 
 
 
-$sql = "SELECT * FROM tblrgobstations where Trim(type) <> 'Class C'";      //get the RGOB station information
+//$sql = "SELECT * FROM tblrgobstations where Trim(type) <> 'Class C'";      //get the RGOB station information
 
-$result2 = mysqli_query($link,$sql);
+//$result2 = mysqli_query($link,$sql);
 
 
 
@@ -139,7 +139,7 @@ while($row=mysqli_fetch_array($result2)){
 
 			<td>$distance
 
-			<td>$RGOBtype
+			<td>$rgobtype
 
 		</tr>";
 
