@@ -15,9 +15,6 @@ require_once( "inc/config.php" );// common connection variable is $conn
 $dist = $_GET["dist"];			//values entered in form
 $altdiff = $_GET["altdiff"];
 
-$dbuser = "root";
-$password = "";
-
 $link = mysqli_connect($connInfo["host"], $connInfo["user"], $connInfo["pass"]); // common db connection variable
 mysqli_select_db($link,$connInfo["db"]);       // common db connection variable   
 
