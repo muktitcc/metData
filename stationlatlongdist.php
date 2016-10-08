@@ -1,4 +1,4 @@
-<!-- called by formgetdistalt.php where specified distance and altitude difference are entered and submitted.  Find MH metstation and RGOB metstation pairs within specified distance and altitude difference.
+ <!-- called by formgetdistalt.php where specified distance and altitude difference are entered and submitted.  Find MH metstation and RGOB metstation pairs within specified distance and altitude difference.
  this is set up that works on XAMPP server with database there called rgob metdata which has tables
  tblstation (copied from metdata database on http://199.180.134.185/)
  and rgobstations-->
@@ -39,7 +39,7 @@ echo "<table>";
 	$long1 = $row["longitude"];
 	$alt = $row["altitude"];
 
-$sql = "SELECT * FROM tblrgobstations where Trim(type) <> 'ClassC'";      //get the RGOB station information
+$sql = "SELECT * FROM tblrgobstations where Trim(type) <> 'Class C'";      //get the RGOB station information
 $result2 = mysqli_query($link,$sql);
 
 while($row=mysqli_fetch_array($result2)){
