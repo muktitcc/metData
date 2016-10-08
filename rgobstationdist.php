@@ -49,11 +49,11 @@ $result2 = mysqli_query($link,$sql);
 
 	$distance = distance($lat1, $long1, $lat2, $long2);             //function to calculate distance between pair of lat long co-ordinates (see below)
 
-	if($distance < $dist AND ABS($alt-$alt2)<= $altdiff) {           //if distance is less than specified distance and altitude difference less than spec alt
+	//if($distance < $dist AND ABS($alt-$alt2)<= $altdiff) {           //if distance is less than specified distance and altitude difference less than spec alt
 		
 		$distance = round($distance,2);				//print out the station pairs in a table
 
-	if ($tblstation_id <> $rgobstation_id) {
+	//if ($tblstation_id <> $rgobstation_id) {
 		echo "<tr>						
 
 			<td>$tblstation_id
@@ -73,8 +73,8 @@ $result2 = mysqli_query($link,$sql);
 			<td>$rgobtype
 		</tr>";
 
-			}
-        	}
+			//}
+        	//}
 	}
 		
 }
