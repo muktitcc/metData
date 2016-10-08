@@ -39,7 +39,7 @@ echo "<table>";
 	$long1 = $row["longitude"];
 	$alt = $row["altitude"];
 
-$sql = "SELECT * FROM tblrgobstations where type <> 'ClassC'";      //get the RGOB station information
+$sql = "SELECT * FROM tblrgobstations where Trim(type) <> 'ClassC'";      //get the RGOB station information
 $result2 = mysqli_query($link,$sql);
 
 while($row=mysqli_fetch_array($result2)){
