@@ -1,4 +1,5 @@
-<!-- find RGOB stations which are near each other-->
+<!-- find RGOB stations which are near each other.  Repeats through each station to each station, so connections duplicated.-->
+<!--edited version of results in RGOB stations within 5km of each other.xlsx-->
 <style>
 	tr:nth-child(even){
 		background-color:#d3d3d3;
