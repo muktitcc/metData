@@ -1,4 +1,4 @@
-<!-- calculate chill hours by season for rgob metdata -->
+<!-- calculate chill hours by season for mhv metdata - adapted from one for rgob data hence variable names -->
 <!-- this program not required as can be done by simple SQL query -->
 <style>
 	tr:nth-child(even){
